@@ -13,3 +13,11 @@ function findSolution(target) {
 }
 
 console.log(findSolution(24));
+
+function isSimple(number) {
+    return true;
+}
+
+function factorize(number) {
+
+}
