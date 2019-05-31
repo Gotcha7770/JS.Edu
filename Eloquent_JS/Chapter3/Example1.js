@@ -1,4 +1,4 @@
-function findSolution(target) {
+export function findSolution(target) {
     function find(start, history) {
         if (start === target) {
             return history;
@@ -12,12 +12,12 @@ function findSolution(target) {
     return find(1, '1');
 }
 
-console.log(findSolution(24));
+// console.log(findSolution(24));
 
-function isSimple(number) {
+export function isSimple(number) {
     return true;
 }
 
-function factorize(number) {
+export function factorize(number) {
 
 }

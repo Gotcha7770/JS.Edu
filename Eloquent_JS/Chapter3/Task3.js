@@ -16,5 +16,3 @@ export function countCharImproved(string, char) {
 }
 
 // console.log(countBs('BBQ'));
-// console.log(countChar('envelope', 'e'));
-// console.log(countCharImproved('envelope', 'e'));
