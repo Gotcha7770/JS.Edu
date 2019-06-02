@@ -1,5 +1,6 @@
 import assert from 'assert';
-import { findSolution, isSimple, factorize } from '../../Eloquent_JS/Chapter3/Example1';
+// eslint-disable-next-line object-curly-newline
+import { findSolution, isPrime, factorize, factorize2 } from '../../Eloquent_JS/Chapter3/Example1';
 import min from '../../Eloquent_JS/Chapter3/Task1';
 import isEven from '../../Eloquent_JS/Chapter3/Task2';
 import { countChar, countCharImproved, countBs } from '../../Eloquent_JS/Chapter3/Task3';
@@ -11,24 +12,30 @@ describe('Example', () => {
         });
     });
 
-    describe('isSimple', () => {
+    describe('isPrime', () => {
         it('should return false from 0', () => {
-            assert.equal(false, isSimple(0));
+            assert.equal(false, isPrime(0));
         });
         it('should return false from 1', () => {
-            assert.equal(false, isSimple(1));
+            assert.equal(false, isPrime(1));
         });
         it('should return true from 2', () => {
-            assert.equal(true, isSimple(2));
+            assert.equal(true, isPrime(2));
         });
         it('should return true from 3', () => {
-            assert.equal(true, isSimple(3));
+            assert.equal(true, isPrime(3));
         });
         it('should return false from 4', () => {
-            assert.equal(false, isSimple(4));
+            assert.equal(false, isPrime(4));
+        });
+        it('should return true from 7', () => {
+            assert.equal(true, isPrime(7));
+        });
+        it('should return false from 8', () => {
+            assert.equal(false, isPrime(8));
         });
         it('should return true from 65537', () => {
-            assert.equal(true, isSimple(65537));
+            assert.equal(true, isPrime(65537));
         });
     });
 
@@ -36,7 +43,7 @@ describe('Example', () => {
         it('should return undefined from 0', () => {
             assert.equal(undefined, factorize(0));
         });
-        it('should return {1} from 1', () => {
+        it('should return undefined from 1', () => {
             assert.equal(undefined, factorize(1));
         });
         it('should return undefined from 2', () => {
@@ -46,7 +53,55 @@ describe('Example', () => {
             assert.equal(undefined, factorize(3));
         });
         it('should return [2, 2] from 4', () => {
-            assert.equal([2, 2], factorize(4));
+            assert.deepEqual([2, 2], factorize(4));
+        });
+        it('should return [2, 13] from 26', () => {
+            assert.deepEqual([2, 13], factorize(26));
+        });
+        it('should return undefined from 43', () => {
+            assert.deepEqual(undefined, factorize(43));
+        });
+        it('should return [2, 2, 3, 7] from 84', () => {
+            assert.deepEqual([2, 2, 3, 7], factorize(84));
+        });
+        it('should return [11, 13] from 143', () => {
+            assert.deepEqual([11, 13], factorize(143));
+        });
+        it('should return [2, 2, 2, 2, 3, 3, 5, 5] from 3600', () => {
+            assert.deepEqual([2, 2, 2, 2, 3, 3, 5, 5], factorize(3600));
+        });
+    });
+
+    describe('factorize2', () => {
+        it('should return undefined from 0', () => {
+            assert.equal(undefined, factorize2(0));
+        });
+        it('should return undefined from 1', () => {
+            assert.equal(undefined, factorize2(1));
+        });
+        it('should return undefined from 2', () => {
+            assert.equal(undefined, factorize2(2));
+        });
+        it('should return undefined from 3', () => {
+            assert.equal(undefined, factorize2(3));
+        });
+        it('should return [2, 2] from 4', () => {
+            assert.deepEqual([2, 2], factorize2(4));
+        });
+        it('should return [2, 13] from 26', () => {
+            assert.deepEqual([2, 13], factorize2(26));
+        });
+        it('should return undefined from 43', () => {
+            assert.deepEqual(undefined, factorize2(43));
+        });
+        it('should return [2, 2, 3, 7] from 84', () => {
+            assert.deepEqual([2, 2, 3, 7], factorize2(84));
+        });
+        it('should return [11, 13] from 143', () => {
+            assert.deepEqual([11, 13], factorize2(143));
+        });
+        it('should return [2, 2, 2, 2, 3, 3, 5, 5] from 3600', () => {
+            assert.deepEqual([2, 2, 2, 2, 3, 3, 5, 5], factorize2(3600));
         });
     });
 });
@@ -88,12 +143,22 @@ describe('Task3', () => {
             assert.equal(0, countChar('envelope', 't'));
         });
     });
+
     describe('countCharImproved', () => {
         it('should return 3 from envelope with \'e\' parameter', () => {
             assert.equal(3, countCharImproved('envelope', 'e'));
         });
         it('should return 0 from envelope with \'t\' parameter', () => {
             assert.equal(0, countCharImproved('envelope', 't'));
+        });
+    });
+
+    describe('countBs', () => {
+        it('should return 2 from BBQ', () => {
+            assert.equal(2, countBs('BBQ'));
+        });
+        it('should return 0 from envelope', () => {
+            assert.equal(0, countBs('envelope'));
         });
     });
 });

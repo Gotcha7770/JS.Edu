@@ -1,4 +1,4 @@
-function range(start, end, step = start < end ? 1 : -1) {
+export function range(start, end, step = start < end ? 1 : -1) {
     const numbers = [];
     const guard = end + step;
 
@@ -9,7 +9,7 @@ function range(start, end, step = start < end ? 1 : -1) {
     return numbers;
 }
 
-function sum(numbers) {
+export function sum(numbers) {
     let result = 0;
 
     for (let i = 0; i < numbers.length; i++) {
@@ -19,12 +19,6 @@ function sum(numbers) {
     return result;
 }
 
-function sumImproved(numbers) {
+export function sumImproved(numbers) {
     return numbers.reduce((value, current) => value + current);
 }
-
-console.log(sum(range(1, 10)));
-console.log(sumImproved(range(1, 10)));
-// → 55
-console.log(range(5, 2, -1));
-// → [5, 4, 3, 2]

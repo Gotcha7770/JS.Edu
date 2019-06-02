@@ -14,5 +14,3 @@ export function countBs(string) {
 export function countCharImproved(string, char) {
     return [...string].filter(e => e === char).length;
 }
-
-// console.log(countBs('BBQ'));
