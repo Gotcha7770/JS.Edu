@@ -19,13 +19,6 @@ export function listToArray(list) {
         array.push(node.value);
     }
 
-    // let pivot = list;
-
-    // while (pivot) {
-    //     array.push(pivot.value);
-    //     pivot = pivot.rest;
-    // }
-
     return array;
 }
 
