@@ -14,28 +14,28 @@ describe('Example', () => {
 
     describe('isPrime', () => {
         it('should return false from 0', () => {
-            assert.equal(false, isPrime(0));
+            assert.ok(!isPrime(0));
         });
         it('should return false from 1', () => {
-            assert.equal(false, isPrime(1));
+            assert.ok(!isPrime(1));
         });
         it('should return true from 2', () => {
-            assert.equal(true, isPrime(2));
+            assert.ok(isPrime(2));
         });
         it('should return true from 3', () => {
-            assert.equal(true, isPrime(3));
+            assert.ok(isPrime(3));
         });
         it('should return false from 4', () => {
-            assert.equal(false, isPrime(4));
+            assert.ok(!isPrime(4));
         });
         it('should return true from 7', () => {
-            assert.equal(true, isPrime(7));
+            assert.ok(isPrime(7));
         });
         it('should return false from 8', () => {
-            assert.equal(false, isPrime(8));
+            assert.ok(!isPrime(8));
         });
         it('should return true from 65537', () => {
-            assert.equal(true, isPrime(65537));
+            assert.ok(isPrime(65537));
         });
     });
 
@@ -123,13 +123,13 @@ describe('Task1', () => {
 describe('Task2', () => {
     describe('isEven', () => {
         it('should return true from 50', () => {
-            assert.equal(true, isEven(50));
+            assert.ok(isEven(50));
         });
         it('should return false from 75', () => {
-            assert.equal(false, isEven(75));
+            assert.ok(!isEven(75));
         });
         it('should return false from -1', () => {
-            assert.equal(false, isEven(-1));
+            assert.ok(!isEven(-1));
         });
     });
 });

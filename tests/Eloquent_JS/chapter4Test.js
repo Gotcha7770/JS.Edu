@@ -83,47 +83,47 @@ describe('Task3', () => {
     });
 });
 
-describe.only('Task4', () => {
+describe('Task4', () => {
     describe('deepEqual', () => {
         it('should return true for 2 null values', () => {
-            assert.equal(true, deepEqual(null, null));
+            assert.ok(deepEqual(null, null));
         });
         it('should return false for null && false', () => {
-            assert.equal(false, deepEqual(null, false));
+            assert.ok(!deepEqual(null, false));
         });
         it('should return false for false && null', () => {
-            assert.equal(false, deepEqual(null, false));
+            assert.ok(!deepEqual(null, false));
         });
         it('should return true for 2 number values', () => {
-            assert.equal(true, deepEqual(1, 1));
+            assert.ok(deepEqual(1, 1));
         });
         it('should return true for 2 string values', () => {
-            assert.equal(true, deepEqual('test', 'test'));
+            assert.ok(deepEqual('test', 'test'));
         });
         it('should return true for 2 bool values', () => {
-            assert.equal(true, deepEqual(true, true));
+            assert.ok(deepEqual(true, true));
         });
         it('should return true for 2 empty objects', () => {
-            assert.equal(true, deepEqual({}, {}));
+            assert.ok(deepEqual({}, {}));
         });
         it('should return true for same object', () => {
             const obj = { here: { is: 'an' }, object: 2 };
-            assert.equal(true, deepEqual(obj, obj));
+            assert.ok(deepEqual(obj, obj));
         });
         it('should return true for 2 equal objects', () => {
             const obj1 = { here: { is: 'an' }, object: 2 };
             const obj2 = { here: { is: 'an' }, object: 2 };
-            assert.equal(true, deepEqual(obj1, obj2));
+            assert.ok(deepEqual(obj1, obj2));
         });
         it('should return false for 2 unequal objects', () => {
             const obj1 = { here: { is: 'an' }, object: 2 };
             const obj2 = { here: 1, object: 2 };
-            assert.equal(false, deepEqual(obj1, obj2));
+            assert.ok(!deepEqual(obj1, obj2));
         });
         it('should return false for 2 different keys', () => {
             const obj1 = { here: { is: 'an' }, object: 2 };
             const obj2 = { here: { at: 1 }, object: 2 };
-            assert.equal(false, deepEqual(obj1, obj2));
+            assert.ok(!deepEqual(obj1, obj2));
         });
     });
 });
