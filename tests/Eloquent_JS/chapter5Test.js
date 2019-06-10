@@ -5,6 +5,9 @@ import countAgeDifference from '../../Eloquent_JS/Chapter5/Task2';
 import { groupBy, lifeExpectancy } from '../../Eloquent_JS/Chapter5/Task3';
 import { some, every } from '../../Eloquent_JS/Chapter5/Task4';
 
+const rawdata = fs.readFileSync('./tests/Eloquent_JS/AncestryData.json');
+const ancestors = JSON.parse(rawdata);
+
 describe('Task1', () => {
     describe('convolution', () => {
         it('should return one array with all values', () => {
@@ -16,31 +19,48 @@ describe('Task1', () => {
 
 describe('Task2', () => {
     describe('countAgeDifference', () => {
-        it('should return 31.2 for test data', () => {
-            const rawdata = fs.readFileSync('./tests/Eloquent_JS/AncestryData.json');
-            const ancestors = JSON.parse(rawdata);
+        it('should return 31.2 for test data', () => {            
             assert.equal(31.2, countAgeDifference(ancestors, '').toFixed(1));
         });
     });
 });
 
-describe.only('Task3', () => {
+describe('Task3', () => {
     describe('groupBy', () => {
-        it('should', () => {
+        it('should group data by name', () => {
             const testData = [
                 { name: 'Dag' },
                 { name: 'Dag' },
                 { name: 'Marry' },
                 { name: 'Todd' },
             ];
-            const standard = [{ name: 'Dag' }, { name: 'Dag' }];
-            assert.deepEqual(standard, groupBy(testData, x => x.name).Dag);
+            const standard = {
+                Dag: [{ name: 'Dag' }, { name: 'Dag' }],
+                Marry: [{ name: 'Marry' }],
+                Todd: [{ name: 'Todd' }],
+            };
+            assert.deepEqual(standard, groupBy(testData, x => x.name));
         });
     });
 
-    describe('lifeExpectancy', () => {
-        it('should', () => {
-            assert.equal(0, 0);
+    describe.only('lifeExpectancy', () => {
+        it('should return 43.5 for 16', () => {
+            assert.equal(43.5, lifeExpectancy(ancestors, 16));
+        });
+        it('should return 51.2 for 17', () => {
+            assert.equal(43.5, lifeExpectancy(ancestors, 16));
+        });
+        it('should return 52.8 for 18', () => {
+            assert.equal(43.5, lifeExpectancy(ancestors, 16));
+        });
+        it('should return 54.8 for 19', () => {
+            assert.equal(43.5, lifeExpectancy(ancestors, 16));
+        });
+        it('should return 84.7 for 20', () => {
+            assert.equal(43.5, lifeExpectancy(ancestors, 16));
+        });
+        it('should return 94 for 21', () => {
+            assert.equal(43.5, lifeExpectancy(ancestors, 16));
         });
     });
 });
