@@ -45,22 +45,22 @@ describe('Task3', () => {
 
     describe.only('lifeExpectancy', () => {
         it('should return 43.5 for 16', () => {
-            assert.equal(43.5, lifeExpectancy(ancestors, 16));
+            assert.equal(43.5, lifeExpectancy(ancestors, 16).toFixed(1));
         });
         it('should return 51.2 for 17', () => {
-            assert.equal(43.5, lifeExpectancy(ancestors, 16));
+            assert.equal(51.2, lifeExpectancy(ancestors, 17).toFixed(1));
         });
         it('should return 52.8 for 18', () => {
-            assert.equal(43.5, lifeExpectancy(ancestors, 16));
+            assert.equal(52.8, lifeExpectancy(ancestors, 18).toFixed(1));
         });
         it('should return 54.8 for 19', () => {
-            assert.equal(43.5, lifeExpectancy(ancestors, 16));
+            assert.equal(54.8, lifeExpectancy(ancestors, 19).toFixed(1));
         });
         it('should return 84.7 for 20', () => {
-            assert.equal(43.5, lifeExpectancy(ancestors, 16));
+            assert.equal(84.7, lifeExpectancy(ancestors, 20).toFixed(1));
         });
         it('should return 94 for 21', () => {
-            assert.equal(43.5, lifeExpectancy(ancestors, 16));
+            assert.equal(94, lifeExpectancy(ancestors, 21).toFixed(1));
         });
     });
 });
