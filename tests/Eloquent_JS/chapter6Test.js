@@ -23,7 +23,7 @@ describe('Task1', () => {
     });
 });
 
-describe('Task2', () => {
+describe.only('Task2', () => {
     describe('StretchCell', () => {
         it('Should return 3 as minWidth for new TextCell("abc"), 1, 2)', () => {
             const cell = new StretchCell(new TextCell('abc'), 1, 2);

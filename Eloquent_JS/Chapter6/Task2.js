@@ -1,77 +1,78 @@
-/* eslint-disable func-names */
 function repeat(string, times) {
     let result = '';
     for (let i = 0; i < times; i++) { result += string; }
     return result;
 }
 
-export function TextCell(text) {
-    this.text = text.split('\n');
-}
-
-TextCell.prototype.minWidth = function () {
-    return this.text.reduce((width, line) => Math.max(width, line.length), 0);
-};
-
-TextCell.prototype.minHeight = function () {
-    return this.text.length;
-};
-
-TextCell.prototype.draw = function (width, height) {
-    const result = [];
-    for (let i = 0; i < height; i++) {
-        const line = this.text[i] || '';
-        result.push(line + repeat(' ', width - line.length));
+export class TextCell {
+    constructor(text) {
+        this.text = text.split('\n');
     }
-    return result;
-};
 
-export function UnderlinedCell(inner) {
-    this.inner = inner;
-}
-
-UnderlinedCell.prototype.minWidth = function () {
-    return this.inner.minWidth();
-};
-
-UnderlinedCell.prototype.minHeight = function () {
-    return this.inner.minHeight() + 1;
-};
-
-UnderlinedCell.prototype.draw = function (width, height) {
-    return this.inner.draw(width, height - 1)
-        .concat([repeat('-', width)]);
-};
-
-export function RTextCell(text) {
-    TextCell.call(this, text);
-}
-
-RTextCell.prototype = Object.create(TextCell.prototype);
-
-RTextCell.prototype.draw = function (width, height) {
-    const result = [];
-    for (let i = 0; i < height; i++) {
-        const line = this.text[i] || '';
-        result.push(repeat(' ', width - line.length) + line);
+    minWidth() {
+        return this.text.reduce((width, line) => Math.max(width, line.length), 0);
     }
-    return result;
-};
 
-export function StretchCell(inner, width, height) {
-    this.inner = inner;
-    this.width = width;
-    this.height = height;
+    minHeight() {
+        return this.text.length;
+    }
+
+    draw(width, height) {
+        const result = [];
+        for (let i = 0; i < height; i++) {
+            const line = this.text[i] || '';
+            result.push(line + repeat(' ', width - line.length));
+        }
+        return result;
+    }
 }
 
-StretchCell.prototype.minWidth = function () {
-    return Math.max(this.inner.minWidth(), this.width);
-};
+export class UnderlinedCell {
+    constructor(inner) {
+        this.inner = inner;
+    }
 
-StretchCell.prototype.minHeight = function () {
-    return Math.max(this.inner.minHeight(), this.height);
-};
+    minWidth() {
+        return this.inner.minWidth();
+    }
 
-StretchCell.prototype.draw = function (width, heigth) {
-    return this.inner.draw(width, heigth);
-};
+    minHeigh() {
+        return this.inner.minHeight() + 1;
+    }
+
+    draw(width, height) {
+        return this.inner.draw(width, height - 1)
+            .concat([repeat('-', width)]);
+    }
+}
+
+export class RTextCell extends TextCell {
+    draw(width, height) {
+        const result = [];
+        for (let i = 0; i < height; i++) {
+            const line = this.text[i] || '';
+            result.push(repeat(' ', width - line.length) + line);
+        }
+        return result;
+    }
+}
+
+export class StretchCell {
+    constructor(inner, width, height) {
+        this.inner = inner;
+        this.width = width;
+        this.height = height;
+    }
+
+    minWidth() {
+        return Math.max(this.inner.minWidth(), this.width);
+    }
+
+    minHeight() {
+        return Math.max(this.inner.minHeight(), this.height);
+    }
+
+    draw(width, heigth) {
+        return this.inner.draw(width, heigth);
+    }
+}

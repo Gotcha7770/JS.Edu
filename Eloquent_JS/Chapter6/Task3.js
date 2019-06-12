@@ -1,30 +1,35 @@
-/* eslint-disable func-names */
-import { range } from '../Chapter4/Task1';
+export class ArraySeq {
+    constructor(items) {
+        this.items = items;
+        this.index = -1;
+    }
 
-function Seq(items) {
-    this.items = items;
-    this.index = -1;
+    moveNext() {
+        if (this.index === this.items.length - 1) { return false; }
+
+        this.index++;
+        return true;
+    }
+
+    current() {
+        return this.items[this.index];
+    }
 }
 
-Seq.prototype.moveNext = function () {
-    if (this.index === this.items.length - 1) { return false; }
+export class RangeSeq {
+    constructor(start, end) {
+        this.current = start - 1;
+        this.end = end;
+    }
 
-    this.index++;
-    return true;
-};
+    moveNext() {
+        if (this.current === this.end) { return false; }
 
-Seq.prototype.current = function () {
-    return this.items[this.index];
-};
+        this.current++;
+        return true;
+    }
 
-export function ArraySeq(items) {
-    Seq.call(this, items);
+    current() {
+        return this.current;
+    }
 }
-
-ArraySeq.prototype = Object.create(Seq.prototype);
-
-export function RangeSeq(start, end) {
-    Seq.call(this, range(start, end));
-}
-
-RangeSeq.prototype = Object.create(Seq.prototype);

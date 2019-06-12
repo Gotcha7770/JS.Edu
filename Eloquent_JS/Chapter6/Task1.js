@@ -1,17 +1,16 @@
-/* eslint-disable func-names */
-export default function Vector(x, y) {
-    this.x = x;
-    this.y = y;
+export default class Vector {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    get length() { return Math.sqrt((this.x ** 2) + (this.y ** 2)); }
+
+    plus(other) {
+        return new Vector(this.x + other.x, this.y + other.y);
+    }
+
+    minus(other) {
+        return new Vector(this.x - other.x, this.y - other.y);
+    }
 }
-
-Vector.prototype.plus = function (other) {
-    return new Vector(this.x + other.x, this.y + other.y);
-};
-
-Vector.prototype.minus = function (other) {
-    return new Vector(this.x - other.x, this.y - other.y);
-};
-
-Object.defineProperty(Vector.prototype, 'length', {
-    get() { return Math.sqrt((this.x ** 2) + (this.y ** 2)); }
-});
