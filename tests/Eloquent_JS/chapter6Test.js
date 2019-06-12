@@ -40,8 +40,3 @@ describe('Task2', () => {
         });
     });
 });
-
-
-describe('Task3', () => {
-
-});
