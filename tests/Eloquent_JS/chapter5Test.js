@@ -1,3 +1,4 @@
+/* global describe it */
 import assert from 'assert';
 import fs from 'fs';
 import convolution from '../../Eloquent_JS/Chapter5/Task1';
@@ -19,7 +20,7 @@ describe('Task1', () => {
 
 describe('Task2', () => {
     describe('countAgeDifference', () => {
-        it('should return 31.2 for test data', () => {            
+        it('should return 31.2 for test data', () => {
             assert.equal(31.2, countAgeDifference(ancestors, '').toFixed(1));
         });
     });

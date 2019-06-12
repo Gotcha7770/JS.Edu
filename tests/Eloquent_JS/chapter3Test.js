@@ -1,5 +1,5 @@
+/* global describe it */
 import assert from 'assert';
-// eslint-disable-next-line object-curly-newline
 import { findSolution, isPrime, factorize, factorize2 } from '../../Eloquent_JS/Chapter3/Example1';
 import min from '../../Eloquent_JS/Chapter3/Task1';
 import isEven from '../../Eloquent_JS/Chapter3/Task2';
