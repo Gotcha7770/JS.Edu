@@ -43,7 +43,7 @@ describe('Task3', () => {
         });
     });
 
-    describe.only('lifeExpectancy', () => {
+    describe('lifeExpectancy', () => {
         it('should return 43.5 for 16', () => {
             assert.equal(43.5, lifeExpectancy(ancestors, 16).toFixed(1));
         });
