@@ -1,5 +1,19 @@
-export class ArraySeq {
+class Seq {
+    take(num) {
+        const result = [];
+        for (let i = 0; i < num; i++) {
+            if (!this.moveNext()) { break; }
+
+            result.push(this.current());
+        }
+
+        return result;
+    }
+}
+
+export class ArraySeq extends Seq {
     constructor(items) {
+        super();
         this.items = items;
         this.index = -1;
     }
@@ -16,20 +30,21 @@ export class ArraySeq {
     }
 }
 
-export class RangeSeq {
+export class RangeSeq extends Seq {
     constructor(start, end) {
-        this.current = start - 1;
+        super();
+        this.pos = start - 1;
         this.end = end;
     }
 
     moveNext() {
-        if (this.current === this.end) { return false; }
+        if (this.pos === this.end) { return false; }
 
-        this.current++;
+        this.pos++;
         return true;
     }
 
     current() {
-        return this.current;
+        return this.pos;
     }
 }
