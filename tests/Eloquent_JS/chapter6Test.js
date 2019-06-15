@@ -42,7 +42,7 @@ describe('Task2', () => {
     });
 });
 
-describe.only('Task3', () => {
+describe('Task3', () => {
     describe('ArraySeq', () => {
         it('should return [1,2] as first 5 items', () => {
             const seq = new ArraySeq([1, 2]);
